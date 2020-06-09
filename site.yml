@@ -1,0 +1,19 @@
+---
+- hosts: webserver
+  remote_user: root
+  tasks:
+    - service: name=mysqld state=started
+      sudo: yes
+
+    - command: ls /root  
+    
+    - name: "创建jenkins容器"
+      docker_container:
+        name: myjenkins
+        image: jenkins:apline
+        state: started
+        ports:
+          - "8001:8080"
+          - "50000:50000"
+        volumes:
+          - /data/jenkins_data:/var/jenkins_home
