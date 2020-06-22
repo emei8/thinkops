@@ -101,7 +101,7 @@ class Runner(object):
             listtasks=False,
             listhosts=False,
             syntax=False,
-            verbosity=None,
+            verbosity=3,
             extra_vars=None,
             timeout=C.DEFAULT_TIMEOUT,
             ssh_common_args=None,
